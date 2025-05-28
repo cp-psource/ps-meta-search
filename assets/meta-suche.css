@@ -1,24 +1,24 @@
-#ds-meta-suche {
+#ps-meta-suche {
   border: 1px solid #ddd;
   padding: 1em;
   max-width: 600px;
   font-family: sans-serif;
 }
 
-#ds-meta-suche form {
+#ps-meta-suche form {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-#ds-meta-suche input,
-#ds-meta-suche select,
-#ds-meta-suche button {
+#ps-meta-suche input,
+#ps-meta-suche select,
+#ps-meta-suche button {
   padding: 6px;
   font-size: 1em;
 }
 
-#ds-meta-suche ul {
+#ps-meta-suche ul {
   margin-top: 1em;
   padding-left: 20px;
 }
@@ -26,6 +26,7 @@
 #ds-externer-link {
   margin-top: 1em;
 }
+
 #ds-suchergebnisse {
   margin-top: 1rem;
   padding: 1rem;

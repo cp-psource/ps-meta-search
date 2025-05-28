@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!query) return;
 
+    // Suche zählen (alle Dienste)
+    fetch(`/wp-json/ds-meta-suche/v1/log?q=${query}&dienst=${dienst}`);
+
     // Link generieren
     let suchURL = "";
     switch (dienst) {
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      fetch(`/wp-json/ds-meta-suche/v1/wayback?url=${query}`)
+      fetch(`/wp-json/ps-meta-suche/v1/wayback?url=${query}`)
         .then(res => res.json())
         .then(data => {
           const count = data.length - 1;
@@ -80,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function ladeMetaGerErgebnisse(query, seite = 1) {
-    fetch(`/wp-json/ds-meta-suche/v1/suche?q=${encodeURIComponent(query)}&page=${seite}`)
+    fetch(`/wp-json/ps-meta-suche/v1/suche?q=${encodeURIComponent(query)}&page=${seite}`)
       .then(res => res.json())
       .then(data => {
         if (!data.results || !data.results.length) {

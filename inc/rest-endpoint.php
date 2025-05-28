@@ -2,9 +2,14 @@
 defined('ABSPATH') || exit;
 
 add_action('rest_api_init', function () {
-  register_rest_route('ds-meta-suche/v1', '/wayback', [
+  register_rest_route('ps-meta-suche/v1', '/wayback', [
     'methods'  => 'GET',
     'callback' => 'ds_proxy_wayback_lookup',
+    'permission_callback' => '__return_true',
+  ]);
+    register_rest_route('ds-meta-suche/v1', '/log', [
+    'methods' => 'GET',
+    'callback' => 'ds_log_suchanfrage',
     'permission_callback' => '__return_true',
   ]);
 });
@@ -27,20 +32,20 @@ function ds_proxy_wayback_lookup($request) {
   return json_decode($body, true);
 }
 
-function ds_meta_suche_rest_callback($request) {
+function ps_meta_suche_rest_callback($request) {
     // Zähler erhöhen
-    $count = (int) get_option( 'ds_meta_suche_counter', 0 );
-    update_option( 'ds_meta_suche_counter', $count + 1 );
+    $count = (int) get_option( 'ps_meta_suche_counter', 0 );
+    update_option( 'ps_meta_suche_counter', $count + 1 );
     $query = sanitize_text_field($request->get_param('q'));
     $page  = max(1, intval($request->get_param('page')));
-    $limit = max(1, intval(get_option('ds_meta_suche_limit', 5)));
+    $limit = max(1, intval(get_option('ps_meta_suche_limit', 5)));
 
-    $key = get_option('ds_meta_suche_apikey');
+    $key = get_option('ps_meta_suche_apikey');
     if (!$key) {
         return new WP_Error('no_key', 'API-Key nicht gesetzt', ['status' => 403]);
     }
 
-    $cache_key = 'ds_meta_cache_' . md5($query);
+    $cache_key = 'ps_meta_cache_' . md5($query);
     $cached = get_transient($cache_key);
     if (!$cached) {
         $url = "https://metager.org/api/meta/meta.ger3?q=" . urlencode($query) . "&key=" . urlencode($key) . "&out=json";

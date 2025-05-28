@@ -14,11 +14,11 @@ if (is_admin()) {
 // REST-Endpunkt laden
 require_once plugin_dir_path(__FILE__) . 'inc/rest-endpoint.php';
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('ds-meta-suche', plugin_dir_url(__FILE__) . 'assets/meta-suche.css');
+    wp_enqueue_style('ps-meta-suche', plugin_dir_url(__FILE__) . 'assets/meta-suche.css');
 });
 
-function ds_meta_suche_shortcode() {
-    $apikey = get_option('ds_meta_suche_apikey');
+function ps_meta_suche_shortcode() {
+    $apikey = get_option('ps_meta_suche_apikey');
     $suchdienste = [
         'duckduckgo' => 'DuckDuckGo',
         'wayback'    => 'Wayback Machine',
@@ -45,11 +45,11 @@ function ds_meta_suche_shortcode() {
     <?php
     return ob_get_clean();
 }
-add_shortcode('ds_meta_suche', 'ds_meta_suche_shortcode');
+add_shortcode('ps_meta_suche', 'ps_meta_suche_shortcode');
 
-add_action('wp_enqueue_scripts', 'ds_meta_suche_scripts');
+add_action('wp_enqueue_scripts', 'ps_meta_suche_scripts');
 
-function ds_meta_suche_scripts() {
-    wp_enqueue_script('ds-meta-suche-js', plugin_dir_url(__FILE__) . 'assets/meta-suche.js', [], '1.0', true);
-    wp_enqueue_style('ds-meta-suche-css', plugin_dir_url(__FILE__) . 'assets/meta-suche.css');
+function ps_meta_suche_scripts() {
+    wp_enqueue_script('ps-meta-suche-js', plugin_dir_url(__FILE__) . 'assets/meta-suche.js', [], '1.0', true);
+    wp_enqueue_style('ps-meta-suche-css', plugin_dir_url(__FILE__) . 'assets/meta-suche.css');
 }
