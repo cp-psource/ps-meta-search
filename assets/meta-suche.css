@@ -1,0 +1,92 @@
+#ds-meta-suche {
+  border: 1px solid #ddd;
+  padding: 1em;
+  max-width: 600px;
+  font-family: sans-serif;
+}
+
+#ds-meta-suche form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#ds-meta-suche input,
+#ds-meta-suche select,
+#ds-meta-suche button {
+  padding: 6px;
+  font-size: 1em;
+}
+
+#ds-meta-suche ul {
+  margin-top: 1em;
+  padding-left: 20px;
+}
+
+#ds-externer-link {
+  margin-top: 1em;
+}
+#ds-suchergebnisse {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.ds-suchergebnis-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ds-suchergebnis-liste li {
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.ds-suchergebnis-liste a {
+  text-decoration: none;
+  color: #0073aa;
+}
+
+.ds-suchergebnis-liste a:hover {
+  text-decoration: underline;
+  color: #005077;
+}
+
+#ds-externer-link {
+  margin-top: 1rem;
+  display: block;
+  font-weight: bold;
+}
+
+#ds-externer-link a {
+  color: #2271b1;
+}
+
+#ds-externer-link a:hover {
+  color: #135e96;
+  text-decoration: underline;
+}
+.ds-pager {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.ds-pager button {
+  background: #2271b1;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.ds-pager button:hover {
+  background: #135e96;
+}
