@@ -6,6 +6,25 @@
  * Author: Dernerd
  */
 
+/**
+ * @@@@@@@@@@@@@@@@@ PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+require 'psource/psource-plugin-update/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+ 
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/cp-psource/ps-meta-suche',
+	__FILE__,
+	'ps-meta-suche'
+);
+ 
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
+/**
+ * @@@@@@@@@@@@@@@@@ ENDE PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+
 defined('ABSPATH') || exit;
 
 if (is_admin()) {
